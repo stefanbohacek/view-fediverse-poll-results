@@ -1,0 +1,121 @@
+<div>
+  <div id="intro" class="container p-5 mb-5">
+    <div class="row">
+      {{#if poll}}
+        <div class="col-sm-12">
+          <p class="lead">
+            Results of
+            <a href="{{poll.url}}">a poll</a>
+            posted by
+            <a href="account.url">{{account.name}}</a>.
+          </p>
+        </div>
+        <div class="col-sm-12 col-md-6">
+          <div id="poll-results">
+            <div class="fediverse-post fediverse-post-rendered w-100 mt-4 mb-4">
+              <div class="card w-100">
+                <div class="post-body-wrapper card-body pt-4 pb-0">
+                  <div
+                    class="fediverse-post-labels position-absolute top-0 end-0 mt-1 me-1"
+                  >
+                  </div>
+                  <div class="card-text">
+                    <div class="row no-gutters mb-1">
+
+                      <div
+                        class="fediverse-post-profile-image-wrapper col-2 col-sm-2 col-md-2 p-2 pt-0 ps-sm-1 pe-sm-1 ps-md-2 pe-md-1 ps-lg-3 pe-lg-1"
+                      >
+                        <a href="{{account.url}}" class="text-decoration-none">
+                          <img
+                            title="Profile image"
+                            alt="Profile image of {{account.name}}"
+                            loading="lazy"
+                            class="post-author-image rounded-circle border"
+                            width="48"
+                            height="48"
+                            src="{{account.image}}"
+                          />
+                        </a>
+                      </div>
+                      <div
+                        class="post-author col-10 col-sm-10 col-md-10 pl-2 pb-3"
+                      >
+                        <p class="font-weight-bold mb-0 mt-0">
+                          <a
+                            class="text-dark text-decoration-none"
+                            href="{{account.image}}"
+                          >{{account.name}}</a>
+                        </p>
+                        <p class="mb-1 mb-md-2 mt-0 fs-6">
+                          <a
+                            class="text-muted text-decoration-none"
+                            href="{{account.image}}"
+                          >
+                            {{account.username}}
+                          </a>
+                        </p>
+                      </div>
+
+                    </div>
+                    <div class="post-body">{{{poll.content}}}
+                      <div class="mt-0 post-poll-results"><div class="row">
+
+                          {{#each poll.votes}}
+
+                            <div class="col-9">
+                              <p class="mb-2">{{this.label}}</p>
+                            </div>
+                            <div class="col-3 text-end">
+                              <span
+                                class="w-100"
+                              >{{this.votesPercentage}}</span>
+                            </div>
+                            <div class="col-12" title="{{this.count}} vote(s)">
+                              <div class="progress mb-3">
+                                <div
+                                  class="progress-bar bg-primary"
+                                  role="progressbar"
+                                  style="width: {{this.votesPortion}}%"
+                                  aria-valuenow="{{this.votesPortion}}"
+                                  aria-valuemin="0"
+                                  aria-valuemax="100"
+                                >
+                                </div>
+                              </div>
+                            </div>
+                          {{/each}}
+
+                          <div class="col-12 mt-3">
+                            <p class="text-muted">
+                              <small>
+                                {{poll.votersCount}}
+                                vote(s) |
+                                {{#if poll.isClosed}}Closed{{else}}Open{{/if}}
+                              </small>
+                            </p>
+                          </div></div></div></div>
+                  </div>
+                </div>
+                <div class="card-footer pb-3"><small>
+                    <a class="text-muted" href="{{poll.url}}" target="_blank">
+                      <small title="">
+                        {{poll.publishedHuman}}
+                      </small>
+                    </a></small></div></div></div>
+          </div>
+        </div>
+      {{else}}
+        <div class="col-sm-12">
+          <p class="lead">
+            This post does not contain a poll.
+          </p>
+        </div>
+      {{/if}}
+      <div class="col-sm-12">
+        <p>
+          <a href="/">View another</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
