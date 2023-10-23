@@ -26,13 +26,8 @@ onReady(() => {
       );
 
       const platformData = await platformDataRequest.json();
-
-      console.log({
-        domain: urlParsed.host,
-        info: platformData,
-      });
-
       const supportedPlatforms = ["mastodon"];
+
       if (supportedPlatforms.includes(platformData?.software?.name)) {
         window.location.href = `/poll?url=${encodeURIComponent(url)}`;
       } else {
