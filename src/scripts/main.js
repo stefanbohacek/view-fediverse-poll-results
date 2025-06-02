@@ -22,7 +22,7 @@ onReady(() => {
       const urlParsed = new URL(url);
 
       const platformDataRequest = await fetch(
-        `https://fediverse-info.stefanbohacek.dev/node-info?domain=${urlParsed.host}`
+        `https://fediverse-info.stefanbohacek.com/node-info?domain=${urlParsed.host}`
       );
 
       const platformData = await platformDataRequest.json();

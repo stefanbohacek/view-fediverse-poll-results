@@ -4,7 +4,7 @@
 
 A proof-of-concept tool that lets you view results of an ongoing poll. A possible use is linking to a page with the results of your poll instead of having to add "view results" as one of the options for your poll.
 
-https://view-results.stefanbohacek.dev
+https://view-results.stefanbohacek.com
 
 Currently only polls posted on Mastodon are supported.
 
